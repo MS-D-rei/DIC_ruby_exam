@@ -50,7 +50,6 @@ class GameStart
     player = Player.new
     enemy = Enemy.new
     janken = Janken.new
-    
     next_game = true
     next_game = janken.pon(player.hand, enemy.hand) while next_game
   end
