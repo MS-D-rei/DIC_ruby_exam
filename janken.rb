@@ -21,7 +21,7 @@ end
 # 相手が「0~2」の値をランダムに生成するロジックを書きます。
 class Enemy
   def hand
-    # グー、チョキ、パーの値をランダムに取得する。
+    # get 0 - 2 randomly
     [0, 1, 2].sample
   end
 end
@@ -50,12 +50,9 @@ class GameStart
     player = Player.new
     enemy = Enemy.new
     janken = Janken.new
+    
     next_game = true
-    while next_game
-      # 変数「next_game」にじゃんけんを実行して返ってきた値(戻り値)を代入します。
-      # 「janken.pon(player.hand, enemy.hand)」でじゃんけんを実行しています。
-      next_game = janken.pon(player.hand, enemy.hand)
-    end
+    next_game = janken.pon(player.hand, enemy.hand) while next_game
   end
 end
 # クラス名を使ってjankenponメソッドを呼び出します。
