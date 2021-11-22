@@ -31,7 +31,7 @@ class Janken
   def pon(player_hand, enemy_hand)
     janken = %W[\u30B0\u30FC \u30C1\u30E7\u30AD \u30D1\u30FC]
     puts "相手の手は#{janken[enemy_hand]}です。"
-    if (player_hand - enemy_hand + 3) % 3.zero?
+    if (player_hand - enemy_hand + 3) % 3 == 0
       puts 'あいこ'
       true
     elsif (player_hand - enemy_hand + 3) % 3 == 2
@@ -51,7 +51,9 @@ class GameStart
     enemy = Enemy.new
     janken = Janken.new
     next_game = true
-    next_game = janken.pon(player.hand, enemy.hand) while next_game
+    while next_game
+    next_game = janken.pon(player.hand, enemy.hand)
+    end
   end
 end
 # クラス名を使ってjankenponメソッドを呼び出します。
